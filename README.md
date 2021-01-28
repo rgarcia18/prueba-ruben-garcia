@@ -62,11 +62,17 @@ $ php artisan db:seed
 Configure the connection data to connect with the payment gateways, this configuration must be done in the .env file.
 
 ## Payment gateway configuration
+Configure the cache to read changes in environment variables from the .env file
 
 ```python
 PLACETOPAY_URL=
 PLACETOPAY_LOGIN=
 PLACETOPAY_TRANKEY=
+```
+## Configuration cache 
+
+```python
+$ php artisan config:cache
 ```
 
 ## Test
