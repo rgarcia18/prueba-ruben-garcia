@@ -52,8 +52,6 @@ class PlaceToPayWebChekOutTest extends TestCase
                         
         $this->assertTrue($response->isSuccessful());
         
-        $order->delete();
-        
     }    
     
 }
