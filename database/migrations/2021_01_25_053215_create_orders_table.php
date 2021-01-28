@@ -15,13 +15,13 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();  
-            $table->integer('transaction_id');
+            $table->integer('transaction_id')->nullable();
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->string('customer_name',190);
             $table->string('customer_email',190);
             $table->string('customer_mobile',50);            
-            $table->string('payment_url',3000);
+            $table->string('payment_url',3000)->nullable();
             $table->string('status',10)->default('CREATED');            
             $table->timestamps();
         });
