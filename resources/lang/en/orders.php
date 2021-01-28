@@ -1,0 +1,38 @@
+<?php
+
+return [
+
+    'new_order' => 'New order',
+    'orders' => 'Orders',
+    'order' => 'Order',
+    'home' => 'Home',
+    'date' => 'Date',
+    'name' => 'Name',
+    'email' => 'Email',
+    'phone' => 'Phone',
+    'product' => 'Product',
+    'status' => 'Status',
+    'options' => 'Options',
+    'description' => 'Description',
+    'purchase_summary' => 'Purchase Summary',
+    'payment_methods' => 'Payment methods',
+    'subtotal' => 'Subtotal',
+    'total' => 'Total',
+    'free' => 'Free',
+    'shipping' => 'Shipping',
+    'go_pay' => 'Go pay',
+    'alert' => 'Alert',
+    'created' => 'Created',
+    'approved' => 'Approved',
+    'payed' => 'Payed',
+    'rejected' => 'Rejected',
+    'pending' => 'Pending',
+    'order_status' => 'Order Status',
+    'undefined' => 'undefined',
+    'information' => 'Information',
+    'no_orders_reg' => 'No orders registered',
+    'detail' => 'Detail',
+    'retry_payment' => 'Retry payment',
+    'error_conn_provider' => 'Error trying to connect with payment provider.',
+    
+];
