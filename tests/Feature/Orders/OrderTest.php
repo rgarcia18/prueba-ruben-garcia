@@ -4,13 +4,17 @@ namespace Tests\Feature\Orders;
 
 use Tests\TestCase;
 use DB;
+use Illuminate\Support\Facades\Session;
 
 class OrderTest extends TestCase
-{    
+{            
     /** @test */
     public function it_create_new_order()
-    {
-        $this->post('/order',[
+    { 
+        Session::start();
+        
+        $this->call('POST','/order/1/create',[
+            '_token' => csrf_token(),
             'customer_name' => 'RUBEN GARCIA',
             'customer_mobile' => '3156261860',
             'customer_email' => 'ruga-18@hotmail.com',
@@ -31,7 +35,7 @@ class OrderTest extends TestCase
     /** @test */
     public function it_display_order()
     {
-        $response = $this->get('/orders?product=1');
+        $response = $this->get('/order/1');
         
         $response->assertStatus(200);
     }
