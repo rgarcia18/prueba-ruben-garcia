@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
+        <meta name="csrf-token" content="{{csrf_token()}}">
         <title>Tienda Deportiva | @yield('title')</title>
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -17,23 +18,23 @@
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">Tienda Deportiva</a>
+                <a class="navbar-brand" href="{{ route('index') }}">@lang('home.store_name')</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/">Inicio</a>
+                        <li class="nav-item @if(\Request::route()->getName() == 'index') active @endif">
+                            <a class="nav-link" href="{{ route('index') }}">@lang('home.home')</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Acerca de</a>
+                            <a class="nav-link @if(\Request::route()->getName() == 'orders.index') active @endif" href="{{ route('orders.index') }}">@lang('home.my_orders')</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Servicios</a>
+                            <a class="nav-link" href="#">@lang('home.services')</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contacto</a>
+                            <a class="nav-link" href="#">@lang('home.contact')</a>
                         </li>
                     </ul>
                 </div>
@@ -48,19 +49,8 @@
                 </div>
             </div>
             <div class="row">                
-                <div class="col-lg-3">
-                    @hasSection('content_title')
-                        <h1 class="my-4">@yield('content_title')</h1>
-                    @else
-                        <br>
-                    @endif
-                    <div class="list-group">
-                        <a href="/" class="list-group-item"><i class="fas fa-home"></i>  Inicio</a>
-                        <a href="#" class="list-group-item"><i class="fas fa-shipping-fast"></i>  Ordenes</a>
-                    </div>
-                </div>
                 <!-- /.col-lg-3 -->                
-                <div class="col-lg-9">
+                <div class="col-lg-12">
                     @if(\Request::route()->getName() == 'index')
                         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
                             <ol class="carousel-indicators">
@@ -70,26 +60,26 @@
                             </ol>
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active">
-                                    <img class="d-block img-fluid" src="{{ asset('img/slider/imgSlider001.jpg') }}" style="width:900px;height:350px" alt="Artículos en promoción">
+                                    <img class="d-block img-fluid" src="{{ asset('img/slider/imgSlider001.jpg') }}" style="width:100%;height:350px">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block img-fluid" src="{{ asset('img/slider/imgSlider002.jpg') }}" style="width:900px;height:350px" alt="Artículos deportivos">
+                                    <img class="d-block img-fluid" src="{{ asset('img/slider/imgSlider002.jpg') }}" style="width:100%;height:350px">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block img-fluid" src="{{ asset('img/slider/imgSlider003.jpg') }}" style="width:900px;height:350px" alt="Artículos para hacer deportivos">
+                                    <img class="d-block img-fluid" src="{{ asset('img/slider/imgSlider003.jpg') }}" style="width:100%;height:350px">
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Anterior</span>
+                                <span class="sr-only"></span>
                             </a>
                             <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Siguiente</span>
+                                <span class="sr-only"></span>
                             </a>
                         </div>
                     @endif
-                    <div class="row">
+                    <div class="container">
                         @yield('content')
                     </div>
                     <!-- /.row -->
@@ -102,7 +92,7 @@
         <!-- Footer -->
         <footer class="py-5 bg-dark">
             <div class="container">
-                <p class="m-0 text-center text-white">Copyright &copy; Tienda Deportiva 2021</p>
+                <p class="m-0 text-center text-white">Copyright &copy; @lang('home.store_name') {{ date('Y') }}</p>
             </div>
             <!-- /.container -->
         </footer>
