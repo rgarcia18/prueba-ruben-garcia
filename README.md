@@ -1,4 +1,4 @@
-# sports shop installation
+# Sports shop installation
 
 To install the store, please follow the following sequence of steps.
 
